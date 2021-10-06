@@ -15,10 +15,10 @@
 - [x] Javascript
 - [x] Redux
 
-## ⚙ Vanilla Redux
+## ⚛️ Javascript Redux
 
 - [x] Store
-- [x] Dispatch
-- [x] Subscribe
 - [x] Reducer
 - [x] Action
+- [x] Dispatch
+- [x] Subscribe
