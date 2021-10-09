@@ -1,33 +1,35 @@
 import { createStore } from "redux";
 
-// const number = document.querySelector("#number");
-// const addBtn = document.querySelector("#addBtn");
-// const minusBtn = document.querySelector("#minusBtn");
+const form = document.querySelector("form");
+const input = document.querySelector("input");
+const ul = document.querySelector("ul");
+const ADD_TODO = "ADD_TODO";
+const DELETE_TODO = "DELETE_TODO";
 
-const reducer = (state = 0, action) => {
-  console.log(state, action);
-
-  if (action.type === "ADD") {
-    return state + 1;
-  } else if (action.type === "MINUS") {
-    return state - 1;
-  } else {
-    return state;
+const reducer = (state = [], action) => {
+  switch (action.type) {
+    case ADD_TODO:
+      return [...state, { id: action.id, text: action.text }];
+    case DELETE_TODO:
+      return state;
+    default:
+      return state;
   }
 };
 
+const handleSubscribe = () => {
+  console.log(store.getState());
+};
+
+const handleSubmit = (event) => {
+  event.preventDefault();
+  const inputValue = input.value;
+  input.value = "";
+  store.dispatch({ type: ADD_TODO, id: Date.now(), text: inputValue });
+};
+
 const store = createStore(reducer);
-// console.log("store", store);
 
-store.dispatch({ type: "ADD" });
-store.dispatch({ type: "ADD" });
-store.dispatch({ type: "ADD" });
-store.dispatch({ type: "ADD" });
-store.dispatch({ type: "ADD" });
-store.dispatch({ type: "MINUS" });
-store.dispatch({ type: "MINUS" });
+store.subscribe(handleSubscribe);
 
-console.log("getState", store.getState());
-
-store.dispatch({ type: "MULTI" });
-console.log("getState", store.getState());
+form.addEventListener("submit", handleSubmit);
