@@ -8,7 +8,7 @@
 - 예를들어 배열 const x=[1,2,3]이라는 배열이 있을 때 x.push(4)를 통해 배열을 추가하게 되면 x는 여전히 동일한 메모리 주소를 가진 배열이다.
 - 하지만 [1,2,3,4]라는 새로운 배열을 만들게 되면 그건 완전히 다른 메모리 주소를 가진 배열이기 때문에 리액트는 해당 배열을 쉽게 알 수 있다.
 
-#### createStore
+#### createStore, reducer
 
 - redux에서 createStore 함수를 사용하기 위해 import해온다.
 - createStore()를 통해 store객체를 생성할 수 있다.
@@ -29,7 +29,7 @@ const store = createStore(reducer);
 const result = store.getState(); // result: hello
 ```
 
-#### reducer
+#### dispatch, action
 
 - reducer함수의 첫 번째 인자로는 state=0, 두 번째 인자로는 action을 지정해준다.
 - 첫 번째 인자인 state=0은 초기 값은 0이지만, 현재 state값을 가지고 있다. (store.getState()를 한 값을 가지고 있다는 의미이다.)
