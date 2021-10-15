@@ -1,4 +1,4 @@
-## Redux
+## Javascript & Redux
 
 #### Redux에서 Mutation(변형)을 하지 않는 이유
 
